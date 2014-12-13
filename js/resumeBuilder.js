@@ -13,7 +13,7 @@ var bio = {
 	"welcomeMessage": "Welcome to Project 2 of my Front-End Web Dev Nanodegree.",
 	"skills": ["Visionary", "Prophetic", "Accurate", "Logical"],
 	"bioPic": "images/GDL.jpg"
-}
+};
 
 bio.display = function()
 	{
@@ -36,6 +36,12 @@ bio.display = function()
 		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 		$("#topContacts").append(formattedLocation);
 
+		$("#footerContacts").append(formattedMobile);
+		$("#footerContacts").append(formattedEmail);
+		$("#footerContacts").append(formattedGithub);
+		$("#footerContacts").append(formattedTwitter);
+		$("#footerContacts").append(formattedLocation);
+
 
 if (bio.skills.length > 0) 
 		{
@@ -48,8 +54,8 @@ if (bio.skills.length > 0)
 			$("#skills").append(formattedSkill);
 			var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
 			$("#skills").append(formattedSkill);
-		};
-	}
+		}
+	};
 
 
 var work = {
@@ -70,7 +76,7 @@ var work = {
 			"description": "Configuring/deploying hardware, application support, printer repair....grunt work."
 		}
 	]
-}
+};
 
 
 work.display = function() 
@@ -89,25 +95,25 @@ work.display = function()
     		var formattedworkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
     		$(".work-entry:last").append(formattedworkDescription);
     	}
-	}
+	};
 
 var projects = {
 	"projects": [
 		{	
 			"title": "Project 1: Mockup to Website",
 			"dates": "2014",
-			"description": "Replicated design mockup in HTML and CSS.  Developed responsive website to display images, descriptions, and links to each of the portfolio projects completed throughout the course."
+			"description": "Replicated design mockup in HTML and CSS.  Developed responsive website to display images, descriptions, and links to each of the portfolio projects completed throughout the course.",
 			"images": ["images/GDL.jpg"]
 		},
 
 		{
 			"title": "Project 2: Interactive Resume",
 			"dates": "2014",
-			"description": "Demonstrate mastery of the language's syntax through a series of challenges. Each multipart problem mimics a real-life challenge that front-end developers face. Required to write clean code and to apply knowledge of variables, objects, JSON, functions and control flow to successfully solve the challenges."
+			"description": "Demonstrate mastery of the language's syntax through a series of challenges. Each multipart problem mimics a real-life challenge that front-end developers face. Required to write clean code and to apply knowledge of variables, objects, JSON, functions and control flow to successfully solve the challenges.",
 			"images": ["images/GDL.jpg"]
 		}
 	]
-}
+};
 
 projects.display = function()
 	{
@@ -130,7 +136,7 @@ projects.display = function()
    				}
 			}
 		}
-	}
+	};
 
 var education = {
 	"schools" : [
@@ -168,7 +174,6 @@ education.display = function()
 	for (school in education.schools)
 		{
 			$("#education").append(HTMLschoolStart);
-			$("#projects").append(HTMLprojectStart);
 			var formattedschoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
 			$(".education-entry:last").append(formattedschoolName);
 			var formattedschoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
@@ -176,12 +181,11 @@ education.display = function()
 			var formattedschoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 			$(".education-entry:last").append(formattedschoolDegree);
 			var formattedschoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
-			$(".education-entry:last").append(formattedschoolLocation);
+			$(".education-entry:last").append(formattedschoolMajor);
 			var formattedschoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 			$(".education-entry:last").append(formattedschoolDates);
 		}	
-	}
-education.display();
+	};
 
 $(document).click(function(loc) 
 	{
@@ -201,13 +205,7 @@ function inName(name)
 		return name[0]+" "+name[1];
 	}
 	
-$("#footerContacts").append(formattedMobile);
-$("#footerContacts").append(formattedEmail);
-$("#footerContacts").append(formattedGithub);
-$("#footerContacts").append(formattedTwitter);
-$("#footerContacts").append(formattedLocation);
-
-$("#main").prepend(internationalizeButton);
+$("#footerContacts").prepend(internationalizeButton);
 
 bio.display();
 work.display();
